@@ -3,7 +3,7 @@ import json
 import os
 from dotenv import load_dotenv
 
-from twitterbot import tweet_to_twitter
+from .twitterbot import tweet_to_twitter
 
 # wrap in function
 

@@ -1,5 +1,18 @@
 import os
 import tweepy
+from .epl_scores import *
+
+
+def make_tweet():
+    load_dotenv()
+    date = "2022-09-17"
+    score_match_dict = get_epl_scores()
+    odds_match_dict = get_epl_odds()
+    correct_ids, upset_ids = get_correct_upsets(
+        odds_match_dict, score_match_dict)
+    tweet_text = create_tweet(correct_ids, upset_ids, score_match_dict, date)
+    print(tweet_text)
+
 
 def lambda_handler(event, context, tweet='Hello World!'):
     print("Get Credentials")
